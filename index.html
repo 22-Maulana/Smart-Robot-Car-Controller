@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Robot Car</title>
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- My Style -->
+    <style>
+      /* Root Variables */
+      :root {
+        --primary: #ffffff;
+        --bg: #3f3f3f;
+        --highlight: #f0a500;
+      }
+
+      /* Body */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg);
+        color: var(--primary);
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 5%;
+        background-color: var(--bg);
+        flex-wrap: wrap;
+      }
+
+      .header-logo img {
+        width: 80px;
+        height: auto;
+        margin-right: 20px;
+      }
+
+      .header-content {
+        text-align: center;
+        max-width: 600px;
+      }
+
+      .header-content h1 {
+        font-size: 2rem;
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin: 0;
+      }
+
+      .header-content p {
+        font-size: 1rem;
+        font-style: italic;
+        margin: 5px 0 0 0;
+      }
+
+      /* Controls Section */
+      .controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 20px auto;
+        gap: 20px;
+      }
+
+      .control-buttons {
+        display: grid;
+        grid-template-areas:
+          "speaker-left maju ."
+          "kiri . kanan"
+          ". mundur speaker-right";
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        gap: 10px;
+      }
+
+      .control-buttons button {
+        background-color: #d9d9d9;
+        color: black;
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        transition: transform 0.2s, background-color 0.3s;
+      }
+
+      .control-buttons button:hover {
+        background-color: #cccccc;
+        transform: scale(1.1);
+      }
+
+      .control-buttons button:active {
+        background-color: var(--highlight);
+        transform: scale(0.95);
+      }
+
+      /* Mobil Section */
+      .car-image img {
+        max-width: 250px;
+        height: auto;
+      }
+
+      /* Developers & About Section */
+      .info-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 40px 5%;
+        background-color: var(--bg);
+        color: var(--primary);
+        flex-wrap: wrap;
+        margin: 20px 0;
+      }
+
+      .developers,
+      .about {
+        flex: 1;
+        padding: 10px;
+        background: #2c2c2c;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 500px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .developers h2,
+      .about h2 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.7rem;
+        color: var(--highlight);
+        margin-bottom: 10px;
+        text-align: center;
+        position: relative;
+        border-bottom: 2px solid var(--highlight);
+        padding-bottom: 20px;
+      }
+
+      .developers p,
+      .about p {
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .developers ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .developers ul li {
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+      }
+
+      .developers ul li i {
+        color: var(--highlight);
+        font-size: 1.2rem;
+      }
+
+      /* Footer */
+      footer {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 2rem;
+        padding: 1rem;
+        background: var(--bg);
+        color: var(--primary);
+      }
+
+      /* Responsive Breakpoints */
+
+      /* Tablet View */
+      @media (max-width: 1024px) {
+        header {
+          flex-direction: column;
+          padding: 20px 5%;
+        }
+
+        .header-logo img {
+          margin-bottom: 10px;
+        }
+
+        .info-section {
+          flex-direction: column;
+        }
+
+        .developers,
+        .about {
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .control-buttons button {
+          width: 70px;
+          height: 70px;
+          font-size: 12px;
+        }
+      }
+
+      /* Mobile View */
+      @media (max-width: 768px) {
+        .header-content h1 {
+          font-size: 1.8rem;
+        }
+
+        .control-buttons button {
+          width: 60px;
+          height: 60px;
+          font-size: 12px;
+        }
+
+        .info-section {
+          padding: 20px;
+        }
+
+        .developers h2,
+        .about h2 {
+          font-size: 1.2rem;
+        }
+
+        .developers ul li {
+          font-size: 0.9rem;
+        }
+
+        footer {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-logo">
+        <a href="#">
+          <img src="/png/logo.png" alt="UNESA" />
+        </a>
+      </div>
+
+      <div class="header-content">
+        <h1>SMART ROBOT CAR</h1>
+        <p>Oleh Kelompok 1 Teknik Informatika Kelas i Angkatan 2023</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- controls & mobil -->
+      <section class="controls">
+        <div class="control-buttons">
+          <button class="speaker-left">
+            <i class="fas fa-bullhorn"></i>
+          </button>
+          <button class="maju" onclick="senddata('F')">Maju</button>
+          <button class="kiri" onclick="senddata('R')">Kanan</button>
+          <button class="kanan" onclick="senddata('L')">Kiri</button>
+          <button class="mundur" onclick="senddata('B')">Mundur</button>
+          <button class="speaker-right">
+            <i class="fas fa-bullhorn"></i>
+          </button>
+        </div>
+
+        <div class="car-image">
+          <img src="/png/car.png" alt="Robot Car" />
+        </div>
+      </section>
+
+      <!-- Developers & About Section -->
+      <section class="info-section">
+        <div class="developers">
+          <h2>DEVELOPERS</h2>
+          <p>
+            Project ini adalah untuk memenuhi Ujian Akhir Semester yang dimana
+            di develop oleh anggota kelompok 1 yaitu:
+          </p>
+          <ul>
+            <li>
+              <i class="fas fa-user"></i> Maulana Ardhiansyah Prasetyo
+              (23051204300)
+            </li>
+            <li>
+              <i class="fas fa-user"></i> Muhammad Aditya Pratama (23051204288)
+            </li>
+            <li>
+              <i class="fas fa-user"></i> Moh. Ibnu Kandiyas (23051204293)
+            </li>
+            <li><i class="fas fa-user"></i> Firza Herfian (23051204295)</li>
+          </ul>
+        </div>
+        <div class="about">
+          <h2>ABOUT</h2>
+          <p>
+            SMART ROBOT CAR ini adalah Robot yang menggunakan Microcontroller
+            ESP32 yang sudah terintegrasi dengan Bluetooth dan WiFi. Dengan hal
+            tersebut maka dapat memudahkan untuk pengontrolan dapat melalui
+            Bluetooth ataupun menggunakan WiFi.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>Copyright &copy; 2024 Kelompok 1. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function senddata(data) {
+        fetch('/data?value=' + data)
+          .then(response => console.log("data sent: " + data))
+          .catch(error => console.error("Error:", error));
+      }
+    </script>
+  </body>
+</html>
